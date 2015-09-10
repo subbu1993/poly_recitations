@@ -26,6 +26,7 @@ int main()
 
 void openFile(ifstream& ifs)
 {
+	//Function that tries to open the file or terminates the program on an unsuccessful file open
 	ifs.open("C:\\Users\\Subramaniam\\Downloads\\chemicals.txt");
 	if(!ifs)
 	{
@@ -36,6 +37,7 @@ void openFile(ifstream& ifs)
 
 void readFileContents(ifstream& ifs,vector<vector<string>>& molecules)
 {
+	// Function that reads each line pushing back the formula and the name into the molecules vector
 	string name,formula;
 	while(ifs >> name >> formula)
 	{
@@ -47,6 +49,7 @@ void readFileContents(ifstream& ifs,vector<vector<string>>& molecules)
 }
 void printByConventionalFor(vector<vector<string>>& molecules)
 {
+	// Function that loops through the vector using the conventional for loop
 	for(size_t i=0;i<molecules.size();i++)
 	{
 		cout << molecules[i][1] << ' ' << molecules[i][0] << endl;
@@ -55,6 +58,7 @@ void printByConventionalFor(vector<vector<string>>& molecules)
 }
 void printByRangedFor(vector<vector<string>>& molecules)
 {
+	// Function that loops through the vector using the Ranged for loop 
 	for(vector<string> molecule : molecules)
 	{
 		cout << molecule[1] << ' ' << molecule[0] << endl;
