@@ -12,13 +12,16 @@ using namespace std;
 void openFile(ifstream&);
 void readFileContents(ifstream&,vector<vector<string>>&);
 void printByConventionalFor(vector<vector<string>>&);
+void printByRangedFor(vector<vector<string>>&);
 int main()
 {
 	vector<vector<string>> molecules;
 	ifstream ifs;
 	openFile(ifs);
 	readFileContents(ifs,molecules);
+	ifs.close();
 	printByConventionalFor(molecules);
+	printByRangedFor(molecules);
 }
 
 void openFile(ifstream& ifs)
@@ -48,5 +51,12 @@ void printByConventionalFor(vector<vector<string>>& molecules)
 	{
 		cout << molecules[i][1] << ' ' << molecules[i][0] << endl;
 	}
-	cout << "=======================";
+	cout << "=======================" << endl;
+}
+void printByRangedFor(vector<vector<string>>& molecules)
+{
+	for(vector<string> molecule : molecules)
+	{
+		cout << molecule[1] << ' ' << molecule[0] << endl;
+	}
 }
