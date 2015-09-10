@@ -11,12 +11,14 @@
 using namespace std;
 void openFile(ifstream&);
 void readFileContents(ifstream&,vector<vector<string>>&);
+void printByConventionalFor(vector<vector<string>>&);
 int main()
 {
 	vector<vector<string>> molecules;
 	ifstream ifs;
 	openFile(ifs);
 	readFileContents(ifs,molecules);
+	printByConventionalFor(molecules);
 }
 
 void openFile(ifstream& ifs)
@@ -39,4 +41,12 @@ void readFileContents(ifstream& ifs,vector<vector<string>>& molecules)
 		molecule.push_back(formula);
 		molecules.push_back(molecule);
 	}
+}
+void printByConventionalFor(vector<vector<string>>& molecules)
+{
+	for(size_t i=0;i<molecules.size();i++)
+	{
+		cout << molecules[i][1] << ' ' << molecules[i][0] << endl;
+	}
+	cout << "=======================";
 }
