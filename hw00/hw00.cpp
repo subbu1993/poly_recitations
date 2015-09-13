@@ -7,6 +7,7 @@ void openFile(ifstream&);
 int readFile(ifstream&, vector<string>&);
 void decrypt(vector<string>&,const int);
 void print(const vector<string>&);
+void decryptChar(char&,const int);
 int main()
 {
   ifstream ifs;
@@ -49,19 +50,26 @@ void decrypt(vector<string>& text,const int numberOfRotations)
     for(int j=0;j<encrypted_line.size();j++)
     {
       char encrypted = encrypted_line[j];
-      if (encrypted > 'a' && encrypted != ' ')
-      {
-        if(encrypted - numberOfRotations < 'a')
-        {
-          int diff = encrypted_line[j] - 'a';
-          diff++;
-          encrypted_line[j] = 'z' - (numberOfRotations - diff);
-        }
-        else
-          encrypted_line[j] = encrypted - numberOfRotations;
-      }
+      decryptChar(encrypted,numberOfRotations);
+      encrypted_line[j] = encrypted;
+    }
       text[i] = encrypted_line;
     }
+  }
+
+
+void decryptChar(char& encrypted,const int numberOfRotations)
+{
+  if (encrypted > 'a' && encrypted != ' ')
+  {
+    if(encrypted - numberOfRotations < 'a')
+    {
+      int diff = encrypted - 'a';
+      diff++;
+      encrypted = 'z' - (numberOfRotations - diff);
+    }
+    else
+      encrypted -= numberOfRotations;
   }
 }
 void print(const vector<string>& text)
