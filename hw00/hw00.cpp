@@ -3,26 +3,46 @@
 #include<vector>
 #include<string>
 using namespace std;
-
+void openFile(ifstream&);
+int readFile(ifstream&, vector<string>&);
+void decrypt(vector<string>&,const int);
+void print(const vector<string>&);
 int main()
 {
-  ifstream ifs("encrypted.txt");
+  ifstream ifs;
+  openFile(ifs);
+  vector<string> text;
+  int numberOfRotations = readFile(ifs,text);
+  decrypt(text,numberOfRotations);
+  print(text);
+}
+
+void openFile(ifstream& ifs)
+{
+  ifs.open("encrypted.txt");
   if(!ifs)
   {
     cerr << "Could not open the file";
     exit(1);
   }
 
+}
+int readFile(ifstream& ifs,vector<string>& text)
+{
   int numberOfRotations;
   string line;
   ifs >> numberOfRotations;
-  vector<string> text;
   getline(ifs,line);
   while(getline(ifs,line))
   {
     text.push_back(line);
   }
   ifs.close();
+  return numberOfRotations;
+}
+
+void decrypt(vector<string>& text,const int numberOfRotations)
+{
   for(size_t i=0;i<text.size();i++)
   {
     string encrypted_line = text[i];
@@ -43,7 +63,9 @@ int main()
       text[i] = encrypted_line;
     }
   }
-
+}
+void print(const vector<string>& text)
+{
   for(size_t i = text.size() ; i-- > 0;  )
   {
     cout << text[i] << endl;
