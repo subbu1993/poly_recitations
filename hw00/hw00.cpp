@@ -15,9 +15,9 @@ int main()
 
   int numberOfRotations;
   string line;
-  getline(ifs,line);
   ifs >> numberOfRotations;
   vector<string> text;
+  getline(ifs,line);
   while(getline(ifs,line))
   {
     text.push_back(line);
@@ -44,7 +44,7 @@ int main()
     }
   }
 
-  for(size_t i = text.size() - 1 ; i>= 0; i-- )
+  for(size_t i = text.size() ; i-- > 0;  )
   {
     cout << text[i] << endl;
   }
