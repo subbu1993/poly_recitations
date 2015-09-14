@@ -17,3 +17,14 @@ int main()
   openFile(ifs);
   readFromFile(ifs);
 }
+
+
+void openFile(ifstream& ifs)
+{
+  ifs.open("warriors.txt");
+  if(!ifs)
+  {
+    cerr << "Cannot open file";
+    exit(1);
+  }
+}
