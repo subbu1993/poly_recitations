@@ -13,6 +13,7 @@ using namespace std;
 
 struct molecule
 {
+  // a molecule type has been defined to store individual molecules
 	int carbon, hydrogen;
 	vector<string> names;
 };
@@ -31,6 +32,7 @@ int main()
 
 void openFile(ifstream& ifs)
 {
+  // tries to open the input file or terminates the program if it cannot
 	ifs.open("hydrocarbons.txt");
 	if (!ifs)
 	{
@@ -41,6 +43,7 @@ void openFile(ifstream& ifs)
 
 void readFromFile(ifstream& ifs, vector<molecule>& molecules)
 {
+  // A function to read from the file and put into a vector of molecule type
 	int numberOfCarbons, numberOfHydrogens;
 	string name;
 	char junk;
@@ -69,6 +72,7 @@ void readFromFile(ifstream& ifs, vector<molecule>& molecules)
 
 void printMolecules(const vector<molecule>& molecules)
 {
+  // A function  to print molecules with the formula first followed by a list of names
 	for (size_t i = 0; i<molecules.size(); i++)
 	{
 		cout << 'C' << molecules[i].carbon << 'H' << molecules[i].hydrogen << endl;
