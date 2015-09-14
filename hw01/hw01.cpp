@@ -7,18 +7,20 @@
 #include<iostream>
 #include<string>
 #include<fstream>
+#include<vector>
 
 using namespace std;
 
+struct warrior;
 void openFile(ifstream&);
 void readFromFile(ifstream&, vector<warrior>&);
 void addWarrior(const string&,const int,vector<warrior>& );
-
+void printWarriors(const vector<warrior>&);
 struct warrior
 {
   string name;
   int strength;
-}
+};
 int main()
 {
   ifstream ifs;
@@ -52,7 +54,7 @@ void readFromFile(ifstream& ifs, vector<warrior>& warriors)
       }
       else if(command == "Status")
       {
-
+        printWarriors(warriors);
       }
       else
       {
@@ -67,5 +69,13 @@ void addWarrior(const string& name,const int strength,vector<warrior>& warriors)
   aWarrior.name = name;
   aWarrior.strength = strength;
   warriors.push_back(aWarrior);
+}
 
+void printWarriors(const vector<warrior>& warriors)
+{
+  cout << "There are " << warriors.size() << " warriors";
+  for(size_t i = 0; i < warriors.size(); i++)
+  {
+    cout << "Warrior: " << warriors[i].name << " Strength: " << warriors[i].strength << endl;
+  }
 }
