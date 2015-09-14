@@ -12,6 +12,7 @@ using namespace std;
 
 void openFile(ifstream&);
 void readFromFile(ifstream&, vector<warrior>&);
+void addWarrior(const string&,const int,vector<warrior>& );
 
 struct warrior
 {
@@ -58,4 +59,13 @@ void readFromFile(ifstream& ifs, vector<warrior>& warriors)
 
       }
   }
+}
+
+void addWarrior(const string& name,const int strength,vector<warrior>& warriors)
+{
+  warrior aWarrior;
+  aWarrior.name = name;
+  aWarrior.strength = strength;
+  warriors.push_back(aWarrior);
+
 }
