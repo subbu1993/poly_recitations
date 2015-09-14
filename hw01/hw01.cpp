@@ -9,3 +9,11 @@
 #include<fstream>
 
 using namespace std;
+
+openFile(ifstream&);
+int main()
+{
+  ifstream ifs;
+  openFile(ifs);
+  readFromFile(ifs);
+}
