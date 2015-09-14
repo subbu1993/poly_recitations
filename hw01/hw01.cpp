@@ -17,6 +17,8 @@ void readFromFile(ifstream&, vector<warrior>&);
 void addWarrior(const string&,const int,vector<warrior>& );
 void printWarriors(const vector<warrior>&);
 bool findWarrior(const string&, const vector<warrior>&);
+void battle(const string&,const string&,vector<warrior>&);
+int findWarriorIndex(const string&,const vector<warrior>&)
 
 struct warrior
 {
@@ -60,7 +62,9 @@ void readFromFile(ifstream& ifs, vector<warrior>& warriors)
       }
       else
       {
-
+        string warrior1,warrior2;
+        ifs >> warrior1 >> warrior2;
+        battle(warrior1,warrior2,warriors);
       }
   }
 }
@@ -98,4 +102,26 @@ void printWarriors(const vector<warrior>& warriors)
   {
     cout << "Warrior: " << warriors[i].name << " Strength: " << warriors[i].strength << endl;
   }
+}
+
+void battle(const string& warrior1, const string& warrior2,vector<warrior>& warriors)
+{
+  int index1 = findWarriorIndex(warrior1,warriors);
+  int index2 = findWarriorIndex(warrior2);
+
+  cout << warrior1 << " battles " << warrior2 << endl;
+  int strength1 = warriors[index1].strength;
+  int strength2 = warriors[index2].strength;
+}
+
+int findWarriorIndex(const string& warrior_name,const vector<warrior>& warriors)
+{
+  for(size_t i = 0; i < warriors.size(); i++)
+  {
+    if(warriors[i].name == name)
+    {
+      return i;
+    }
+  }
+  return warriors.size();
 }
