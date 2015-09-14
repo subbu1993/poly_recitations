@@ -10,12 +10,20 @@
 
 using namespace std;
 
-openFile(ifstream&);
+void openFile(ifstream&);
+void readFromFile(ifstream&, vector<warrior>&);
+
+struct warrior
+{
+  string name;
+  int strength;
+}
 int main()
 {
   ifstream ifs;
+  vector<warrior> warriors;
   openFile(ifs);
-  readFromFile(ifs);
+  readFromFile(ifs,warriors);
 }
 
 
@@ -26,5 +34,28 @@ void openFile(ifstream& ifs)
   {
     cerr << "Cannot open file";
     exit(1);
+  }
+}
+
+void readFromFile(ifstream& ifs, vector<warrior>& warriors)
+{
+  string command;
+  while(ifs >> command)
+  {
+      if(command == "Warrior")
+      {
+        string name;
+        int strength;
+        ifs >> name >> strength;
+        addWarrior(name,strength,warriors);
+      }
+      else if(command == "Status")
+      {
+
+      }
+      else
+      {
+
+      }
   }
 }
