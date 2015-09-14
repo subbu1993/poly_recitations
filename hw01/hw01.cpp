@@ -16,6 +16,8 @@ void openFile(ifstream&);
 void readFromFile(ifstream&, vector<warrior>&);
 void addWarrior(const string&,const int,vector<warrior>& );
 void printWarriors(const vector<warrior>&);
+bool findWarrior(const string&, const vector<warrior>&);
+
 struct warrior
 {
   string name;
@@ -65,12 +67,30 @@ void readFromFile(ifstream& ifs, vector<warrior>& warriors)
 
 void addWarrior(const string& name,const int strength,vector<warrior>& warriors)
 {
-  warrior aWarrior;
-  aWarrior.name = name;
-  aWarrior.strength = strength;
-  warriors.push_back(aWarrior);
+  if(!findWarrior(name,warriors))
+  {
+    warrior aWarrior;
+    aWarrior.name = name;
+    aWarrior.strength = strength;
+    warriors.push_back(aWarrior);
+  }
+  else
+  {
+    cout << "Warrior already exists";
+  }
 }
 
+bool findWarrior(const string& name, const vector<warrior>& warriors)
+{
+  for(size_t i = 0; i < warriors.size(); i++)
+  {
+    if(warriors[i].name == name)
+    {
+      return true;
+    }
+  }
+  return false;
+}
 void printWarriors(const vector<warrior>& warriors)
 {
   cout << "There are " << warriors.size() << " warriors";
