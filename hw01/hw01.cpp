@@ -70,7 +70,7 @@ void readFromFile(ifstream& ifs, vector<warrior>& warriors)
 }
 
 void addWarrior(const string& name,const int strength,vector<warrior>& warriors)
-{
+{ // adds a warrior to the vector of warriors..... also checks if a warrior already exists before adding the warrior
   if(!findWarrior(name,warriors))
   {
     warrior aWarrior;
@@ -86,6 +86,7 @@ void addWarrior(const string& name,const int strength,vector<warrior>& warriors)
 
 bool findWarrior(const string& name, const vector<warrior>& warriors)
 {
+  // if a warrior is present return true,false otherwise
   for(size_t i = 0; i < warriors.size(); i++)
   {
     if(warriors[i].name == name)
@@ -97,6 +98,7 @@ bool findWarrior(const string& name, const vector<warrior>& warriors)
 }
 void printWarriors(const vector<warrior>& warriors)
 {
+  // gets called on the Status method and prints out each warrior along with the name and strength
   cout << "There are " << warriors.size() << " warriors" << endl;
   for(size_t i = 0; i < warriors.size(); i++)
   {
@@ -106,6 +108,7 @@ void printWarriors(const vector<warrior>& warriors)
 
 void battle(const string& warrior1, const string& warrior2,vector<warrior>& warriors)
 {
+  // battle method to compare the strengths and then outputs the result of each bottle
   int index1 = findWarriorIndex(warrior1,warriors);
   int index2 = findWarriorIndex(warrior2,warriors);
 
@@ -149,6 +152,7 @@ void battle(const string& warrior1, const string& warrior2,vector<warrior>& warr
 
 int findWarriorIndex(const string& warrior_name,const vector<warrior>& warriors)
 {
+  // returns the index if the warrior is present in the warriors vector
   for(size_t i = 0; i < warriors.size(); i++)
   {
     if(warriors[i].name == warrior_name)
