@@ -32,7 +32,7 @@ class Sandwich2
   		cout << "Mayo: " << amountOfMayo << endl;
   		cout << "Tomoatoes: " << numberOfTomatoes << endl;
   	}
-}
+};
 
 class Sandwich3
 {
@@ -49,7 +49,7 @@ class Sandwich3
   		cout << "Mayo: " << amountOfMayo << endl;
   		cout << "Tomoatoes: " << numberOfTomatoes << endl;
   	}
-}
+};
 
 
 
