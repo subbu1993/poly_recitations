@@ -9,4 +9,10 @@ class Sandwich1
   int numberOfBread,quantityOfCheese,amountOfMayo,numberOfTomatoes;
   double amountOfMustard;
 
+};
+
+int main()
+{
+  Sandwich1 s1;
+
 }
