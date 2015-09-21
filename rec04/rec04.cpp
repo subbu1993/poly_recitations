@@ -128,12 +128,12 @@ class Sandwich6
 
     int getTomatoes() const
     { // return the number of tomatoes in the sandwich
-      return numberOfBread;
+      return numberOfTomatoes;
     }
 
     int getCheese() const
     { // return the number of cheese slices in the sandwich
-      return numberOfBread;
+      return quantityOfCheese;
     }
 
     double getMayo() const
@@ -161,6 +161,9 @@ int main()
   s5.display();
   Sandwich6 s6;
   s6.display();
-
-
+  cout << s6.getBread() << endl;
+  cout << s6.getTomatoes() << endl;
+  cout << s6.getCheese() << endl;
+  cout << s6.getMayo() << endl;
+  cout << s6.getMustard() << endl;
 }
