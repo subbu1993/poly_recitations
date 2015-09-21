@@ -51,6 +51,27 @@ class Sandwich3
   	}
 };
 
+class Sandwich4
+{
+  int numberOfBread, quantityOfCheese, numberOfTomatoes;
+  double amountOfMustard;
+  double amountOfMayo;
+
+  public:
+    void display()
+  	{  // method that outputs the contents of a sandwich
+  		cout << "Here are the contents of my sandwich" << endl;
+  		cout << "Bread: " << numberOfBread << endl;
+  		cout << "Cheese: " << quantityOfCheese << endl;
+  		cout << "Mayo: " << amountOfMayo << endl;
+  		cout << "Tomoatoes: " << numberOfTomatoes << endl;
+  	}
+
+    Sandwich4() : amountOfMayo(0.1)
+    {
+
+    }
+};
 
 
 int main()
@@ -60,6 +81,8 @@ int main()
 	s2.display();
   Sandwich3 s3;
 	s3.display();
+  Sandwich4 s4;
+  s4.display();
 
 
 }
