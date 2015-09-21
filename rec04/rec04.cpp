@@ -432,12 +432,12 @@ class SandwichTruck
 
   public:
     void insertSandwich(Sandwich sandwich)
-    {
+    { // adds a sandwich to the truck
       truck.push_back(sandwich);
     }
 
     void checkBeforLeaving() const
-    {
+    { // prints out each sandiwch content before leaving 
       for(const Sandwich& sandwich : truck)
       {
         sandwich.display();
