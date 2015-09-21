@@ -99,6 +99,55 @@ class Sandwich5
     }
 };
 
+class Sandwich6
+{
+  int numberOfBread, quantityOfCheese, numberOfTomatoes;
+  double amountOfMustard;
+  double amountOfMayo;
+
+  public:
+    void display()
+  	{  // method that outputs the contents of a sandwich
+  		cout << "Here are the contents of my sandwich" << endl;
+  		cout << "Bread: " << numberOfBread << endl;
+  		cout << "Cheese: " << quantityOfCheese << endl;
+  		cout << "Mayo: " << amountOfMayo << endl;
+  		cout << "Tomoatoes: " << numberOfTomatoes << endl;
+      cout << "Mustard: " << amountOfMustard << endl;
+  	}
+
+    Sandwich6(int numberOfBread = 2,int quantityOfCheese = 1,double amountOfMayo = 0.1 , int numberOfTomatoes = 2, double amountOfMustard = 1.0) : numberOfBread(numberOfBread),quantityOfCheese(quantityOfCheese),numberOfTomatoes(numberOfTomatoes),amountOfMustard(amountOfMustard),amountOfMayo(amountOfMayo)
+    {
+
+    }
+
+    int getBread() const
+    { // return the number of breads in the sandwich
+      return numberOfBread;
+    }
+
+    int getTomatoes() const
+    { // return the number of tomatoes in the sandwich
+      return numberOfBread;
+    }
+
+    int getCheese() const
+    { // return the number of cheese slices in the sandwich
+      return numberOfBread;
+    }
+
+    double getMayo() const
+    { // return the amount of mayo in the sandwich
+      return amountOfMayo;
+    }
+
+    double getMustard() const
+    { // return the amount of mustard in the sandwich
+      return amountOfMustard;
+    }
+
+};
+
 int main()
 {
 	Sandwich1 s1;
@@ -110,6 +159,8 @@ int main()
   s4.display();
   Sandwich5 s5;
   s5.display();
+  Sandwich6 s6;
+  s6.display();
 
 
 }
