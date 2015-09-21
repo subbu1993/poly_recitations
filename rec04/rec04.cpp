@@ -10,21 +10,56 @@ class Sandwich1
 {
 	int numberOfBread, quantityOfCheese, numberOfTomatoes;
 	double amountOfMustard;
-	double amountOfMayo = 0.1;
+	double amountOfMayo;
 
 public:
-	void display()
-	{
-		cout << "Here are the contents of my sandwich" << endl;
-		cout << "Bread: " << numberOfBread << endl;
-		cout << "Cheese: " << quantityOfCheese << endl;
-		cout << "Mayo: " << amountOfMayo << endl;
-		cout << "Tomoatoes: " << numberOfTomatoes << endl;
-	}
+
+
 };
+
+class Sandwich2
+{
+  int numberOfBread, quantityOfCheese, numberOfTomatoes;
+  double amountOfMustard;
+  double amountOfMayo;
+
+  public:
+    void display()
+  	{ // method that outputs the contents of a sandwich
+  		cout << "Here are the contents of my sandwich" << endl;
+  		cout << "Bread: " << numberOfBread << endl;
+  		cout << "Cheese: " << quantityOfCheese << endl;
+  		cout << "Mayo: " << amountOfMayo << endl;
+  		cout << "Tomoatoes: " << numberOfTomatoes << endl;
+  	}
+}
+
+class Sandwich3
+{
+  int numberOfBread, quantityOfCheese, numberOfTomatoes;
+  double amountOfMustard;
+  double amountOfMayo = 0.1;
+
+  public:
+    void display()
+  	{  // method that outputs the contents of a sandwich
+  		cout << "Here are the contents of my sandwich" << endl;
+  		cout << "Bread: " << numberOfBread << endl;
+  		cout << "Cheese: " << quantityOfCheese << endl;
+  		cout << "Mayo: " << amountOfMayo << endl;
+  		cout << "Tomoatoes: " << numberOfTomatoes << endl;
+  	}
+}
+
+
 
 int main()
 {
 	Sandwich1 s1;
-	s1.display();
+  Sandwich2 s2;
+	s2.display();
+  Sandwich3 s3;
+	s3.display();
+
+
 }
