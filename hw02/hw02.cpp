@@ -5,6 +5,7 @@ Program that represents delegation in a warrior and a weapon
 */
 #include<iostream>
 #include<string>
+#include<fstream>
 using namespace std;
 
 class Weapon
@@ -18,3 +19,19 @@ class Warrior
   string name;
   Weapon weapon;
 };
+
+int main()
+{
+  ifstream ifs;
+  openFile(ifs);
+}
+
+void openFile(ifstream& ifs)
+{ // a function to check if the input file can be opened, in case it cannot be opened the program terminates
+  ifs.open("warriors.txt");
+  if(!ifs)
+  {
+    cerr << " File cannot be opened ";
+    exit(1);
+  }
+}
