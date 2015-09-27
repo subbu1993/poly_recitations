@@ -25,6 +25,8 @@ class Weapon
       return strength;
     }
 
+    Weapon(const string& name,int strength): name(name),strength(strength) {}
+
 };
 
 class Warrior
@@ -48,11 +50,15 @@ class Warrior
       return weapon.getStrength();
     }
 
+    Warrior() {}
+    Warrior(const string& name,const string& weaponName,int strength) : name(name),weapon(Warrior(weaponName,strength)) {}
+
 };
 
 void openFile(ifstream&);
 void readFromFile(ifstream&,vector<Warrior>&);
-
+void printWarriors(const vector<Warrior>&);
+void addWarrior(const string&,const string&,int,vector<Warrior>&);
 
 int main()
 {
@@ -85,7 +91,10 @@ void readFromFile(ifstream& ifs,vector<Warrior>& warriors)
 
     else if(command == "Warrior")
     {
+      string name,weaponName;
+      int strength;
 
+      addWarrior(name,weaponName,strength,warriors);
     }
 
     else if(command == "Battle")
@@ -97,11 +106,16 @@ void readFromFile(ifstream& ifs,vector<Warrior>& warriors)
 }
 
 void printWarriors(const vector<Warrior>& warriors)
-{
+{// function that prints out the status of the warrior group
   cout << "There are " << warriors.size() << " warriors";
   for(size_t i = 0;i<warriors.size();i++)
   {
-    cout << "Warrior: " << warriors[i].getName() << " , Weapon: " << warriors[i].getWeaponName() <<", " << warriors[i].getWeaponStrength();
+    cout << "Warrior: " << warriors[i].getName() << " , Weapon: " << warriors[i].getWeaponName() <<", " << warriors[i].getWeaponStrength() << endl;
   }
+}
 
+void addWarrior(const string& name ,const string& weaponName,int strength,vector<Warrior>& warriors)
+{// function to add the warrior to the list of warriors
+  Warrior aWarrior(name,weaponName,strength);
+  warriors.push_back(aWarrior);
 }
