@@ -25,6 +25,8 @@ class Weapon
       return strength;
     }
 
+    Weapon() {}
+
     Weapon(const string& name,int strength): name(name),strength(strength) {}
 
 };
@@ -51,7 +53,7 @@ class Warrior
     }
 
     Warrior() {}
-    Warrior(const string& name,const string& weaponName,int strength) : name(name),weapon(Warrior(weaponName,strength)) {}
+    Warrior(const string& name,const string& weaponName,int strength) : name(name),weapon(Weapon(weaponName,strength)) {}
 
 };
 
@@ -64,7 +66,8 @@ int main()
 {
   ifstream ifs;
   openFile(ifs);
-  readFromFile(ifs);
+  vector<Warrior> warriors;
+  readFromFile(ifs,warriors);
 }
 
 void openFile(ifstream& ifs)
@@ -86,14 +89,14 @@ void readFromFile(ifstream& ifs,vector<Warrior>& warriors)
   {
     if (command == "Status")
     {
-      printWarriors(warriors)
+      printWarriors(warriors);
     }
 
     else if(command == "Warrior")
     {
       string name,weaponName;
       int strength;
-
+      ifs >> name >> weaponName >> strength;
       addWarrior(name,weaponName,strength,warriors);
     }
 
@@ -107,7 +110,7 @@ void readFromFile(ifstream& ifs,vector<Warrior>& warriors)
 
 void printWarriors(const vector<Warrior>& warriors)
 {// function that prints out the status of the warrior group
-  cout << "There are " << warriors.size() << " warriors";
+  cout << "There are " << warriors.size() << " warriors" << endl;
   for(size_t i = 0;i<warriors.size();i++)
   {
     cout << "Warrior: " << warriors[i].getName() << " , Weapon: " << warriors[i].getWeaponName() <<", " << warriors[i].getWeaponStrength() << endl;
