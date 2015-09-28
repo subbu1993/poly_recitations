@@ -19,9 +19,9 @@ public:
 		cout << name << endl;
 	}
 
-  void eat() const {
-    cout << "animal is eating" << endl;
-  }
+	virtual void eat() const {
+		cout << "animal is eating" << endl;
+	}
 private:
 	string name;
 };
@@ -39,15 +39,15 @@ public:
 		cout << "i am a dog and my name is ";
 		Animal::display();
 	}
-  void eat() const {
-    cout << "Dog is eating" << endl;
-  }
+	void eat() const {
+		cout << "Dog is eating" << endl;
+	}
 };
 
 int main()
 {
-	Animal a ;
-  Dog d;
-  a = d;
-  a.eat();
+	Animal* a = nullptr;
+	Dog d;
+	a = &d;
+	a->eat();
 }
