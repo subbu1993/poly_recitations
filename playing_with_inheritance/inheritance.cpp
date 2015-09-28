@@ -46,7 +46,8 @@ public:
 
 int main()
 {
-	Dog walle("Wall e");
-	walle.display();
-  walle.eat();
+	Animal a ;
+  Dog d;
+  a = d;
+  a.eat();
 }
